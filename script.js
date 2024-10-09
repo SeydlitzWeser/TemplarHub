@@ -1,19 +1,12 @@
 let currentIndex = 0;
 let galleryElements = [];
 
-document.querySelectorAll('.gallery video').forEach((video) => {
-    video.addEventListener('click', (event) => {
-        event.preventDefault();  // Prevent the default play behavior
-        enlargeMedia(video);
-    });
-});
-
 function enlargeMedia(element) {
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxVideo = document.getElementById('lightboxVideo');
 
-    // Find all elements in the current gallery (either photos or videos)
+    // Find all elements in the current gallery (images or videos)
     galleryElements = Array.from(element.parentNode.querySelectorAll('img, video'));
     currentIndex = galleryElements.indexOf(element);
 
@@ -39,11 +32,11 @@ function showLightboxContent(element) {
         lightboxImage.src = element.src;
         lightboxImage.classList.remove('hidden');
     } else if (element.tagName === 'VIDEO') {
-        element.pause();  // Pause the background video immediately
-        lightboxVideo.src = element.currentSrc;
+        element.pause(); // Pause the video in the gallery
+        lightboxVideo.src = element.src;
         lightboxVideo.currentTime = element.currentTime;
         lightboxVideo.classList.remove('hidden');
-        lightboxVideo.play();  // Automatically play the video in the lightbox
+        lightboxVideo.play(); // Automatically play the video in the lightbox
     }
 }
 
@@ -85,7 +78,7 @@ function closeLightbox() {
     // Hide the lightbox and clear the media sources
     lightbox.style.visibility = 'hidden';
     lightboxImage.src = '';
-    lightboxVideo.pause();  // Stop the video from playing
+    lightboxVideo.pause();
     lightboxVideo.src = '';
 
     // Remove event listeners for arrow key navigation when closing the lightbox

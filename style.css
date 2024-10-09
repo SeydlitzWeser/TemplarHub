@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-image: url('images/background.jpg');
+  background-image: url("images/background.jpg");
   margin: 0;
   padding: 0;
 }
@@ -18,39 +18,11 @@ main {
   margin: 0 auto;
 }
 
-.center-button {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 2rem;
-  flex-wrap: wrap;
-}
-
-.navigate-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #333;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-  text-align: center;
-}
-
-.navigate-button:hover {
-  background-color: #0056b3;
-}
-
-
 section {
   margin-bottom: 2rem;
 }
 
 h2 {
-  margin-bottom: 1rem;
-}
-
-p {
   margin-bottom: 1rem;
 }
 
@@ -60,25 +32,14 @@ p {
   gap: 1rem;
 }
 
-.gallery img, .gallery video {
+.gallery img,
+.gallery video {
   max-width: 200px;
   max-height: 150px;
   object-fit: cover;
   border: 1px solid #ccc;
   cursor: pointer;
-}
-
-/* Hide controls by default */
-.gallery video::-webkit-media-controls {
-  display: none !important;
-}
-
-.gallery video:hover::-webkit-media-controls {
-  display: block !important;
-}
-
-.gallery video:hover {
-  pointer-events: auto; /* Enables interaction with the video controls on hover */
+  border-radius: 5px;
 }
 
 #lightbox {
@@ -95,9 +56,12 @@ p {
   visibility: hidden;
 }
 
-#lightbox img, #lightbox video {
+#lightbox img,
+#lightbox video {
   max-width: 90%;
   max-height: 90%;
+  background: white;
+  border-radius: 5px;
 }
 
 #lightbox .close {
@@ -134,3 +98,25 @@ p {
   display: none;
 }
 
+.center-button {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Space between buttons */
+  margin-top: 2rem;
+  flex-wrap: wrap; /* Allows buttons to wrap if there are many */
+}
+
+.navigate-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+.navigate-button:hover {
+  background-color: #333444;
+}
