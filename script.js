@@ -26,6 +26,9 @@ function enlargeMedia(element) {
 
     // Show the lightbox
     lightbox.style.visibility = 'visible';
+
+    // Add event listeners for arrow key navigation
+    document.addEventListener('keydown', handleKeyNavigation);
 }
 
 function showLightboxContent(element) {
@@ -59,6 +62,21 @@ function navigateLightbox(direction) {
     showLightboxContent(galleryElements[currentIndex]);
 }
 
+function handleKeyNavigation(event) {
+    // Navigate left with the left arrow key
+    if (event.key === 'ArrowLeft') {
+        navigateLightbox(-1);
+    }
+    // Navigate right with the right arrow key
+    if (event.key === 'ArrowRight') {
+        navigateLightbox(1);
+    }
+    // Close the lightbox with the Escape key
+    if (event.key === 'Escape') {
+        closeLightbox();
+    }
+}
+
 function closeLightbox() {
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
@@ -69,4 +87,7 @@ function closeLightbox() {
     lightboxImage.src = '';
     lightboxVideo.pause();  // Stop the video from playing
     lightboxVideo.src = '';
+
+    // Remove event listeners for arrow key navigation when closing the lightbox
+    document.removeEventListener('keydown', handleKeyNavigation);
 }
