@@ -18,11 +18,39 @@ main {
   margin: 0 auto;
 }
 
+.center-button {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.navigate-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+.navigate-button:hover {
+  background-color: #0056b3;
+}
+
+
 section {
   margin-bottom: 2rem;
 }
 
 h2 {
+  margin-bottom: 1rem;
+}
+
+p {
   margin-bottom: 1rem;
 }
 
@@ -41,15 +69,15 @@ h2 {
 }
 
 /* Hide controls by default */
-#gallery video::-webkit-media-controls {
+.gallery video::-webkit-media-controls {
   display: none !important;
 }
 
-#gallery video:hover::-webkit-media-controls {
+.gallery video:hover::-webkit-media-controls {
   display: block !important;
 }
 
-#gallery video:hover {
+.gallery video:hover {
   pointer-events: auto; /* Enables interaction with the video controls on hover */
 }
 

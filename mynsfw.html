@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Templar Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Templar Hub</h1>
+    </header>
+    <main>
+        <div class="center-button">
+            <a href="nsfw.html" class="navigate-button">Go back</a>
+        </div>
+
+        <section id="photoGallery">
+            <h2>Photo Gallery</h2>
+            <div class="gallery" id="photos">
+                <img src="images/mypics/Pic01.jpg" alt="Photo 1" onclick="enlargeMedia(this)">
+                <img src="images/mypics/Pic02.jpg" alt="Photo 1" onclick="enlargeMedia(this)">
+                <img src="images/mypics/Buttplug01.jpg" alt="Photo 1" onclick="enlargeMedia(this)">
+                <img src="images/mypics/Buttplug02.jpg" alt="Photo 1" onclick="enlargeMedia(this)">
+            </div>
+        </section>
+        
+        <section id="videoGallery">
+            <h2>Video Gallery</h2>
+            <div class="gallery" id="videos">
+                <video src="videos/myvideos/Vid01.mp4" controls onclick="enlargeMedia(this)"></video>
+                <video src="videos/myvideos/Vid02.mp4" controls onclick="enlargeMedia(this)"></video>
+                <video src="videos/myvideos/Vid03.mp4" controls onclick="enlargeMedia(this)"></video>
+                <video src="videos/myvideos/Vid03(Slow-mo).mp4" controls onclick="enlargeMedia(this)"></video>
+                <video src="videos/myvideos/Vid04.mp4" controls onclick="enlargeMedia(this)"></video>
+                <video src="videos/myvideos/Vid05.mp4" controls onclick="enlargeMedia(this)"></video>
+                <video src="videos/myvideos/Vid06.mp4" controls onclick="enlargeMedia(this)"></video>
+                <video src="videos/myvideos/Vid07.mp4" controls onclick="enlargeMedia(this)"></video>
+                <video src="videos/myvideos/Vid08.mp4" controls onclick="enlargeMedia(this)"></video>
+                <video src="videos/myvideos/Vid09.mp4" controls onclick="enlargeMedia(this)"></video>
+                <video src="videos/myvideos/Vid10.mp4" controls onclick="enlargeMedia(this)"></video>
+                <video src="videos/myvideos/Vid11.mp4" controls onclick="enlargeMedia(this)"></video>
+                <video src="videos/myvideos/DoublePen01.mp4" controls onclick="enlargeMedia(this)"></video>
+                <video src="videos/myvideos/DoublePen02.mp4" controls onclick="enlargeMedia(this)"></video>
+                <video src="videos/myvideos/DoublePen03.mp4" controls onclick="enlargeMedia(this)"></video>
+                <video src="videos/myvideos/DoublePen04.mp4" controls onclick="enlargeMedia(this)"></video>
+                <video src="videos/myvideos/DoublePen05.mp4" controls onclick="enlargeMedia(this)"></video>
+                <video src="videos/myvideos/DoublePen06.mp4" controls onclick="enlargeMedia(this)"></video>
+                <video src="videos/myvideos/DoublePen07.mp4" controls onclick="enlargeMedia(this)"></video>
+                <video src="videos/myvideos/TriplePen01.mp4" controls onclick="enlargeMedia(this)"></video>
+                <video src="videos/myvideos/SlideOut.mp4" controls onclick="enlargeMedia(this)"></video>
+                <video src="videos/myvideos/WallBang01.mp4" controls onclick="enlargeMedia(this)"></video>
+                <video src="videos/myvideos/WallBang02.mp4" controls onclick="enlargeMedia(this)"></video>
+            </div>
+        </section>
+    </main>
+
+    <div id="lightbox" class="hidden">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img id="lightboxImage" class="lightbox-content hidden">
+        <video id="lightboxVideo" class="lightbox-content hidden" controls></video>
+        <span class="lightbox-arrow left" onclick="navigateLightbox(-1)">&#10094;</span>
+        <span class="lightbox-arrow right" onclick="navigateLightbox(1)">&#10095;</span>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
