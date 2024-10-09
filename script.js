@@ -1,7 +1,13 @@
 let currentIndex = 0;
 let galleryElements = [];
 
-function enlargeMedia(element) {
+function enlargeMedia(element, event) {
+    // Prevent the default behavior of the video playing on click
+    if (element.tagName === 'VIDEO') {
+        event.preventDefault();
+        element.pause(); // Ensure the gallery video is paused
+    }
+
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxVideo = document.getElementById('lightboxVideo');
@@ -32,9 +38,8 @@ function showLightboxContent(element) {
         lightboxImage.src = element.src;
         lightboxImage.classList.remove('hidden');
     } else if (element.tagName === 'VIDEO') {
-        element.pause(); // Pause the video in the gallery
         lightboxVideo.src = element.src;
-        lightboxVideo.currentTime = element.currentTime;
+        lightboxVideo.currentTime = element.currentTime; // Keep the same timestamp if you want
         lightboxVideo.classList.remove('hidden');
         lightboxVideo.play(); // Automatically play the video in the lightbox
     }
@@ -84,3 +89,20 @@ function closeLightbox() {
     // Remove event listeners for arrow key navigation when closing the lightbox
     document.removeEventListener('keydown', handleKeyNavigation);
 }
+
+const videos = document.querySelectorAll('video');
+
+videos.forEach(video => {
+    // Hide controls by default
+    video.removeAttribute('controls');
+
+    // Show controls when the mouse hovers over the video
+    video.addEventListener('mouseenter', () => {
+        video.setAttribute('controls', 'controls');
+    });
+
+    // Hide controls when the mouse leaves the video
+    video.addEventListener('mouseleave', () => {
+        video.removeAttribute('controls');
+    });
+});
