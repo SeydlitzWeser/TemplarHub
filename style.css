@@ -116,9 +116,10 @@ p {
 }
 
 @media (max-width: 480px) {
+
   .gallery img,
   .gallery video {
-      width: calc((25% - 1rem) / 3);
+      width: calc((100% - 2rem) / 3);
       height: 174px;
   }
 }
