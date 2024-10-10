@@ -110,7 +110,24 @@ p {
 @media (max-width: 768px) {
   .gallery img,
   .gallery video {
-      width: calc((100% - 2rem) / 3); /* 3 items per row */
+      width: calc((100% - 2rem) / 3);
+      height: 174px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery img,
+  .gallery video {
+      width: calc((100% - 1rem) / 2);
+      height: 174px;
+  }
+}
+
+@media (max-width: 320px) {
+  .gallery img,
+  .gallery video {
+      width: 100%;
+      height: 174px;
   }
 }
 
