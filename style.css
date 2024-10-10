@@ -110,7 +110,7 @@ p {
 @media (max-width: 768px) {
   .gallery img,
   .gallery video {
-      width: calc((100% - 2rem) / 3);
+      width: calc((100% - 2rem) / 4);
       height: 174px;
   }
 }
@@ -118,7 +118,7 @@ p {
 @media (max-width: 480px) {
   .gallery img,
   .gallery video {
-      width: calc((100% - 1rem) / 2);
+      width: calc((100% - 1rem) / 3);
       height: 174px;
   }
 }
