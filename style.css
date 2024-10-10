@@ -100,11 +100,18 @@ p {
 .gallery img,
 .gallery video {
   width: 15%;
-  height: auto;
+  height: 174px;
   object-fit: cover;
   border: 1px solid #ccc;
   cursor: pointer;
   border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .gallery img,
+  .gallery video {
+      width: calc((100% - 2rem) / 3); /* 3 items per row */
+  }
 }
 
 #lightbox {
