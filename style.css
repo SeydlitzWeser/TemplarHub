@@ -99,8 +99,8 @@ p {
 
 .gallery img,
 .gallery video {
-  width: 175px;
-  height: 175px;
+  width: 15%;
+  height: 174px;
   object-fit: cover;
   border: 1px solid #ccc;
   cursor: pointer;
