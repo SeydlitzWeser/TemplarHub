@@ -120,6 +120,13 @@ p {
   background: rgba(0, 0, 0, 0.8);
   z-index: 1000;
   visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#lightbox.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
 #lightbox img,

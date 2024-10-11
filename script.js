@@ -1,8 +1,10 @@
 let currentIndex = 0;
 let galleryElements = [];
+let isNavigating = false; // Variable for debouncing
 
 function enlargeMedia(element, event) {
-    if (element.tagName === 'VIDEO') {
+    // Prevent the default behavior of the video playing on click/tap
+    if (element.tagName === 'VIDEO' && event) {
         event.preventDefault();
         element.pause();
     }
@@ -11,16 +13,22 @@ function enlargeMedia(element, event) {
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxVideo = document.getElementById('lightboxVideo');
 
+    // Find all elements in the current gallery (images or videos)
     galleryElements = Array.from(element.parentNode.querySelectorAll('img, video'));
     currentIndex = galleryElements.indexOf(element);
 
+    // Hide both elements initially
     lightboxImage.classList.add('hidden');
     lightboxVideo.classList.add('hidden');
 
+    // Show the appropriate media in the lightbox
     showLightboxContent(galleryElements[currentIndex]);
 
+    // Show the lightbox with fade-in effect
+    lightbox.classList.add('visible');
     lightbox.style.visibility = 'visible';
 
+    // Add event listeners for arrow key navigation
     document.addEventListener('keydown', handleKeyNavigation);
 }
 
@@ -40,15 +48,27 @@ function showLightboxContent(element) {
 }
 
 function navigateLightbox(direction) {
+    // Debounce navigation to prevent rapid changes
+    if (isNavigating) return;
+    isNavigating = true;
+
+    // Update the index based on direction (-1 for left, +1 for right)
     currentIndex += direction;
 
+    // Loop back if out of bounds
     if (currentIndex < 0) {
         currentIndex = galleryElements.length - 1;
     } else if (currentIndex >= galleryElements.length) {
         currentIndex = 0;
     }
 
+    // Show the next or previous media
     showLightboxContent(galleryElements[currentIndex]);
+
+    // Allow navigation after a small delay (e.g., 300ms)
+    setTimeout(() => {
+        isNavigating = false;
+    }, 300);
 }
 
 function handleKeyNavigation(event) {
@@ -68,27 +88,36 @@ function closeLightbox() {
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxVideo = document.getElementById('lightboxVideo');
 
-    lightbox.style.visibility = 'hidden';
-    lightboxImage.src = '';
-    lightboxVideo.pause();
-    lightboxVideo.src = '';
+    // Fade out the lightbox before hiding it completely
+    lightbox.style.opacity = '0';
+    setTimeout(() => {
+        lightbox.style.visibility = 'hidden';
+        lightboxImage.src = '';
+        lightboxVideo.pause();
+        lightboxVideo.src = '';
 
-    document.removeEventListener('keydown', handleKeyNavigation);
+        // Remove event listeners for arrow key navigation when closing the lightbox
+        document.removeEventListener('keydown', handleKeyNavigation);
+    }, 300); // Adjust the timeout to match the transition duration
 }
 
 const videos = document.querySelectorAll('video');
 
 videos.forEach(video => {
+    // Hide controls by default
     video.removeAttribute('controls');
 
-    video.addEventListener('mouseenter', () => {
+    // Show controls when the mouse hovers over the video or when touch starts
+    video.addEventListener('pointerenter', () => {
         video.setAttribute('controls', 'controls');
     });
 
-    video.addEventListener('mouseleave', () => {
+    // Hide controls when the mouse leaves the video or when touch ends
+    video.addEventListener('pointerleave', () => {
         video.removeAttribute('controls');
     });
 
+    // Handle touch events for mobile devices
     video.addEventListener('touchstart', (event) => {
         enlargeMedia(video, event);
     });
