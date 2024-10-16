@@ -88,17 +88,18 @@ function closeLightbox() {
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxVideo = document.getElementById('lightboxVideo');
 
-    // Fade out the lightbox before hiding it completely
-    lightbox.style.opacity = '0';
-    setTimeout(() => {
+    // Fade out the lightbox
+    lightbox.classList.remove('visible'); // Remove visible class to start fade-out
+
+    // Listen for the transition to finish before hiding
+    lightbox.addEventListener('transitionend', function onTransitionEnd() {
         lightbox.style.visibility = 'hidden';
         lightboxImage.src = '';
         lightboxVideo.pause();
         lightboxVideo.src = '';
-
-        // Remove event listeners for arrow key navigation when closing the lightbox
         document.removeEventListener('keydown', handleKeyNavigation);
-    }, 300); // Adjust the timeout to match the transition duration
+        lightbox.removeEventListener('transitionend', onTransitionEnd); // Clean up the event listener
+    });
 }
 
 const videos = document.querySelectorAll('video');
