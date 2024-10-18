@@ -139,8 +139,8 @@ section {
 }
 
 #socials img {
-  width: 4.5vw;
-  height: 4.5vw;
+  width: 5rem;
+  height: 5rem;
   border: 0.3vw solid #ccc;
   border-radius: 3rem;
   transition: transform 0.3s ease;
