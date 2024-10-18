@@ -38,7 +38,6 @@ main {
 }
 
 .navigate-button {
-  padding: 1vw 2vw;
   font-size: clamp(0.8rem, 1.5vw, 1.2rem);
   background-image: linear-gradient(
     to right,
@@ -53,6 +52,7 @@ main {
   text-decoration: none;
   border: 0.3vw solid #ccc;
   border-radius: 1rem;
+  padding: 1vw 2vw;
   transition: background-color 0.3s;
   text-align: center;
 }
@@ -75,9 +75,7 @@ p {
   font-weight: bold;
 }
 
-#photoGallery,
-#videoGallery,
-#sections {
+section {
   background-image: linear-gradient(
     rgba(0, 0, 0, 1),
     rgba(0, 0, 0, 0.75),
@@ -91,9 +89,72 @@ p {
   margin-bottom: 2vw;
 }
 
+#photoGallery,
+#videoGallery {
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0.75),
+    rgba(128, 128, 128, 1),
+    rgba(128, 0, 32, 0.75),
+    rgba(128, 0, 32, 1)
+  );
+  border: 0.3vw solid #ccc;
+  border-radius: 1rem;
+  padding: 1.5vw;
+  margin-bottom: 2vw;
+}
+
+#socials {
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0.75),
+    rgba(128, 128, 128, 1),
+    rgba(128, 0, 32, 0.75),
+    rgba(128, 0, 32, 1)
+  );
+  border: 0.3vw solid #ccc;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1.5vw;
+  margin: 2rem auto;
+  width: fit-content;
+}
+
+#socials h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+#socials img {
+  width: 4.5vw;
+  height: 4.5vw;
+  border: 0.3vw solid #ccc;
+  border-radius: 3rem;
+  transition: transform 0.3s ease;
+}
+
+#socials img:hover {
+  transform: scale(1.2);
+}
+
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(clamp(120px, 15vw, 200px), 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(clamp(120px, 15vw, 200px), 1fr)
+  );
   gap: 1vw;
   box-sizing: border-box;
 }
